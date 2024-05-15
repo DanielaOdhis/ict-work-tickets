@@ -7,6 +7,7 @@ body {
 .wrapper {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 .top-section {
@@ -45,9 +46,8 @@ body {
 
 .request {
   margin-top: 20px;
-  width: 95%;
+  width: 100%;
   padding: 20px;
-  margin: 10px;
 }
 
 .request table {
@@ -68,18 +68,17 @@ body {
   color: black;
 }
 
-.reports{
+.navigation {
   margin-top: 20px;
-  width: 95%;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation button {
+  padding: 10px;
+  margin: 0 10px;
+  font-size: 16px;
+}
+p{
   margin: 10px;
-}
-
-.reports table{
-  width: 100%;
-}
-
-.reports .names{
-  background-color: rgb(73, 72, 72);
-  color: white;
 }
