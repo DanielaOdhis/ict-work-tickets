@@ -64,7 +64,12 @@ function App() {
         </table>
       </div>
       <hr/>
-      <div></div>
+      <div>
+        <p>User Remarks: ____________________________________________________________________</p>
+        <p>Completed Date (ICT): __/__/2024</p>
+        <p>Signature: ________________  Date: __/__/2024</p>
+        <p>Thank You</p>
+      </div>
     </div>
   );
 }
