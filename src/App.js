@@ -101,8 +101,8 @@ function App() {
       <hr />
       <div>
         <p>User Remarks: ____________________________________________________________________</p>
-        <p>Completed Date (ICT): __/__/2024</p>
-        <p>Signature: ________________  Date: __/__/2024</p>
+        <p>Completed Date (ICT): ____/____/2024</p>
+        <p>Signature: ________________  Date: ____/____/2024</p>
         <p><center>Thank You</center></p>
       </div>
       {workOrders.length > 1 && (
