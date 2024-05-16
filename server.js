@@ -74,7 +74,7 @@ app.get('/orders', (req, res)=>{
 })
 
 app.get('/departments', (req, res)=>{
-    const sql = 'SELECT * FROM departments';
+    const sql = 'SELECT * FROM department';
     connection.query(sql, (err, result)=>{
         if(err){
             console.error('Error fetching from the database: ', err);

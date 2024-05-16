@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   const [workOrders, setWorkOrders] = useState([]);
+  const [departments, setDepartments] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    fetch('/data.json')
-      .then(response => response.json())
-      .then(data => setWorkOrders(data))
-      .catch(error => console.error('Error fetching data:', error));
+  useEffect(()=>{
+    axios.get('http://localhost:5000/orders')
+    .then(response => {
+      setWorkOrders(response.data);
+    })
+   .catch(error => {
+      console.error('Error fetching work orders:', error);
+    });
+
+    axios.get('http://localhost:5000/departments')
+    .then(response => {
+      setDepartments(response.data);
+    })
+   .catch(error => {
+      console.error('Error fetching departments:', error);
+    });
   }, []);
 
   const showNextOrder = () => {
@@ -59,12 +72,12 @@ function App() {
                   <td className="work"><b>DATE</b></td>
                 </tr>
                 <tr>
-                  <td className="name"><b>{new Date(currentOrder.date_time).toLocaleString()}</b></td>
+                  <td className="name"><b>{new Date(currentOrder.created_at).toLocaleString()}</b></td>
                 </tr>
               </tbody>
             </table>
             <br />
-            <b>Ticket No: {currentOrder.ticket_number}</b>
+            <b>Ticket No: {currentOrder.ticket_no}</b>
           </div>
         )}
       </div>
@@ -78,9 +91,9 @@ function App() {
                 <td className="names"><b>FLOOR/ DEPARTMENT</b></td>
               </tr>
               <tr>
-                <td className="num"><b>{currentOrder.name_requested}</b></td>
-                <td className="num"><b>{currentOrder.contact.telephone}<br />{currentOrder.contact.email}</b></td>
-                <td className="num"><b>{currentOrder.location.floor}, {currentOrder.location.department}</b></td>
+                <td className="num"><b>{departments.name}</b></td>
+                <td className="num"><b>{departments.telephone}<br />{departments.email}</b></td>
+                <td className="num"><b>{departments.floor}, {departments.department}</b></td>
               </tr>
             </tbody>
           </table> <br/>
